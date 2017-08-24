@@ -1,0 +1,11 @@
+---
+  - name: "Setting sshd: PermitRootLogin without-password"
+    lineinfile:
+      dest: /etc/ssh/sshd_config
+      regexp: '^#PermitRootLogin yes'
+      line: 'PermitRootLogin without-password'
+      backrefs: yes
+      state: present
+    notify:
+    - reload sshd
+
